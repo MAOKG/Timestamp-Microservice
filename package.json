@@ -1,0 +1,14 @@
+{
+  "name": "timestamp",
+  "version": "1.0.0",
+  "description": "I can pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maosen Chen",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
