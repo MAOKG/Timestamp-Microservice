@@ -1,6 +1,6 @@
 var express = require('express')
 var app = express()
-
+var month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 app.set('view engine', 'ejs')
 
 app.get('/', function(req, res) {
@@ -9,7 +9,15 @@ app.get('/', function(req, res) {
 
 app.get('/:time', function(req, res) {
   var time = req.params.time
+  if (!isNaN(Number(time))) {
+    time = Number(time)*1000
+  }
   var obj = {'unix': null, 'natural': null}
+  var date = new Date(time)
+  if (!isNaN(date.getTime())) {
+    obj.unix = date.getTime()/1000
+    obj.natural = month[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear()
+  }
   res.send(obj)
 })
 
